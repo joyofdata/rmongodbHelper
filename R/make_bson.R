@@ -7,7 +7,7 @@
 #' @return mongo.bson.buffer with new item added
 #' @export
 make_bson <- function(obj, name, value, type) {
-  name <- sub("_$","$",name)
+  name <- sub("_\\$","$",name)
   
   if(type == "{") {
     mongo.bson.buffer.start.object(obj, name)
