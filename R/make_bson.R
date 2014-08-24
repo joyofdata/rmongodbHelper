@@ -23,6 +23,8 @@ make_bson <- function(obj, name, value, type) {
     mongo.bson.buffer.finish.object(obj)
   } else if(type == "date") {
     mongo.bson.buffer.append.time(obj, name, value)
+  } else if(type == "integer") {
+    mongo.bson.buffer.append.int(obj, name, value)
   } else {
     stop("unknown type.")
   }
