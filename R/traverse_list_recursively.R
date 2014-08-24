@@ -46,8 +46,8 @@ traverse_list_recursively <- function(l, obj, fun, tz="GMT") {
         if(substr(value,1,6) == "__time") {
           #7890123456789012345
           #2014-01-01 12:12:12
-          value <- as.POSIXct(substr(value,8,26), tz=tz)
-          type <- "time"
+          value <- as.POSIXct(substr(value,8,17), tz=tz)
+          type <- "date"
         }
         
         obj <- fun(obj, name, value, type)
