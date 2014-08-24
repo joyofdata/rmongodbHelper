@@ -27,7 +27,7 @@ traverse_list_recursively <- function(l, obj, fun) {
           type = list(a = "{", b = "}")
         }
         obj <- fun(obj, name, "", type$a)
-        obj <- F(l[[i]], obj, fun)
+        obj <- traverse_list_recursively(l[[i]], obj, fun)
         obj <- fun(obj, name, "", type$b)
       } else {
         obj <- fun(obj, name, l[[i]], class(l[[i]]))
