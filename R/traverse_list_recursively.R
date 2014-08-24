@@ -7,7 +7,7 @@
 #' @examples
 #' l <- list(a=1,b=list(c=2,d=3))
 #' L <- json_to_list(l = l, obj = data.frame(), fun = make_df)
-traverse_list_recursively <- function(l, obj, fun) {
+traverse_list_recursively <- function(l, obj, fun, tz="GMT") {
   if(length(l) >= 1) {
     
     names <- names(l)
@@ -37,10 +37,20 @@ traverse_list_recursively <- function(l, obj, fun) {
           }
         }
         obj <- fun(obj, name, "", type$a)
-        obj <- traverse_list_recursively(l[[i]], obj, fun)
+        obj <- traverse_list_recursively(l[[i]], obj, fun, tz)
         obj <- fun(obj, name, "", type$b)
       } else {
-        obj <- fun(obj, name, l[[i]], class(l[[i]]))
+        value <- l[[i]]
+        type <- class(l[[i]])
+        
+        if(substr(value,1,6) == "__time") {
+          #7890123456789012345
+          #2014-01-01 12:12:12
+          value <- as.POSIXct(substr(value,7,25), tz=tz)
+          type <- "time"
+        }
+        
+        obj <- fun(obj, name, value, type)
       }
     }
   }

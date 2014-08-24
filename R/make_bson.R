@@ -21,6 +21,8 @@ make_bson <- function(obj, name, value, type) {
     mongo.bson.buffer.append.bool(obj, name, value)
   } else if(type == "}" || type == "]") {
     mongo.bson.buffer.finish.object(obj)
+  } else if(type == "time") {
+    mongo.bson.buffer.append.time(obj, name, value)
   } else {
     stop("unknown type.")
   }
