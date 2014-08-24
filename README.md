@@ -47,3 +47,5 @@ For detailed information on how to use this package please have a look at the fo
 - http://stackoverflow.com/a/25239583/562440
 - http://stackoverflow.com/a/25473782/562440
 - http://stackoverflow.com/a/25473070/562440
+
+Nonetheless this package does not aim at being extensive - it really is just a workaround until the issue in rmongodb has been fixed. Having said that you are welcome to extend, correct or improve the code or just send me suggestions on what to add.
