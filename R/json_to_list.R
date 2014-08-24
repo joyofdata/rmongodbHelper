@@ -1,3 +1,9 @@
+#' Convert JSON string to a list()
+#'
+#' @param json String representing a JSON object
+#' @return A list() representing the JSON object
+#' @examples
+#' json_to_list("{a:1,b:["x","y","z"]}")
 json_to_list <- function(json) {
   
   json <- gsub("\\{\\}","list()",json)
