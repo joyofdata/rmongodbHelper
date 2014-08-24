@@ -17,7 +17,7 @@ json_to_list <- function(json) {
   json <- gsub("\\]",")",json)
   json <- gsub("true","TRUE",json)
   json <- gsub("false","FALSE",json)
-  json <- gsub("$","_$",json)
+  json <- gsub("\\$","_$",json)
   
   return(eval(parse(text = json)))
 }
