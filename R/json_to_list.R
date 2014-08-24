@@ -3,7 +3,8 @@
 #' @param json String representing a JSON object
 #' @return A list() representing the JSON object
 #' @examples
-#' json_to_list("{a:1,b:["x","y","z"]}")
+#' L <- json_to_list("{a:1,b:["x","y","z"]}")
+#' @export
 json_to_list <- function(json) {
   
   json <- gsub("\\{\\}","list()",json)
