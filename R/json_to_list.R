@@ -1,4 +1,4 @@
-#' Convert JSON string to a list()
+#' Convert JSON string to a list().
 #'
 #' @param json String representing a JSON object
 #' @return A list() representing the JSON object

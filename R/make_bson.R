@@ -1,3 +1,11 @@
+#' Adds new item to mongo.bson.buffer
+#'
+#' @param obj Initial mongo.bson.buffer
+#' @param name String holding name of node
+#' @param value logical, numeric or string holding  value of node
+#' @param type Identifier for type of node
+#' @return mongo.bson.buffer with new item added
+#' @export
 make_bson <- function(obj, name, value, type) {
   if(type == "{") {
     mongo.bson.buffer.start.object(obj, name)

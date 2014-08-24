@@ -1,3 +1,12 @@
+#' Traverse list recursively and apply function to nodes.
+#'
+#' @param l list() to be traversed
+#' @param obj Initial object which is supposed to be returned
+#' @param fun Function to be applied to nodes
+#' @return An object of same type as obj made by fun
+#' @examples
+#' l <- list(a=1,b=list(c=2,d=3))
+#' L <- json_to_list(l = l, obj = data.frame(), fun = make_df)
 traverse_list_recursively <- function(l, obj, fun) {
   if(length(l) >= 1) {
     
