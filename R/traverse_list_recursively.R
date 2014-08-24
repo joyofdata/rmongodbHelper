@@ -49,7 +49,7 @@ traverse_list_recursively <- function(l, obj, fun, tz="GMT") {
             #2014-01-01 12:12:12
             value <- as.POSIXct(substr(value,8,17), tz=tz)
             type <- "date"
-          } else if(substr(value(1,5) == "__int")) {
+          } else if(substr(value,1,5) == "__int") {
             value <- as.numeric(gsub("[^0-9]","",value))
             type <- "integer"
           }
