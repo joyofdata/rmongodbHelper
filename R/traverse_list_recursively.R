@@ -20,11 +20,21 @@ traverse_list_recursively <- function(l, obj, fun) {
         name = names[i]
       }
       
+      if(name == ".ARR") next()
+      
       if(is.list(l[[i]])) {
         if(is.null(names(l[[i]]))) {
-          type = list(a = "[", b = "]")
+          if(length(l[[i]]) == 0) {
+            type = list(a = "{", b = "}")
+          } else {
+            type = list(a = "[", b = "]")
+          }
         } else {
-          type = list(a = "{", b = "}")
+          if(!is.null(l[[i]][[".ARR"]])) {
+            type = list(a = "[", b = "]")
+          } else {
+            type = list(a = "{", b = "}")
+          }
         }
         obj <- fun(obj, name, "", type$a)
         obj <- traverse_list_recursively(l[[i]], obj, fun)
